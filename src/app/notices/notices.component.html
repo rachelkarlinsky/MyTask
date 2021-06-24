@@ -1,0 +1,32 @@
+<div style="margin: 50px;">
+
+    <div class="container" style="text-align:center">
+
+      <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+      </div>
+      <div class="row">
+        <div class="col-3" *ngFor="let notice of notices | filter:term">
+            <div class="card" style="margin:5px;">
+              <img class="card-img-top" src="{{notice.img}}">
+              <div class="card-body">
+                <h3 class="card-title">{{notice.title}}</h3>
+                <p class="card-text">{{notice.description}}</p>
+              </div>
+              <div class="card-body">
+                <h6 class="card-text">{{notice.location}}</h6>
+              </div>
+              <div>
+              <div style="float: right">
+                <button mat-icon-button routerLink="/notices/{{notice.id}}">
+                  <mat-icon>edit</mat-icon>
+                </button>
+                </div>
+                <div style="float: left">
+                <button mat-icon-button (click)="deleteNotice(notice)" style="float: right">
+                  <mat-icon>delete</mat-icon>
+                </button>
+                </div>
+              </div>
+            </div>
+        </div>

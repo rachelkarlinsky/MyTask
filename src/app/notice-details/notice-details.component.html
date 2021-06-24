@@ -1,0 +1,21 @@
+  <div *ngIf="selectedNotice" style="text-align:center">
+    <h2>Details</h2>
+    <div>
+      <label for="notice-title">Notice title: </label>
+      <input id="notice-title" [(ngModel)]="selectedNotice.title" placeholder="Notice title"/>
+    </div>
+    <div>
+      <label for="notice-description">Notice description: </label>
+      <input id="notice-description" [(ngModel)]="selectedNotice.description" placeholder="Notice description"/>
+    </div>
+    <div>
+      <label for="notice-location">Notice location: </label>
+      <input id="notice-location" [(ngModel)]="selectedNotice.location" placeholder="Notice location"/>
+    </div>
+    <div>
+      <label for="notice-img">Notice img url: </label>
+      <input id="notice-img" [(ngModel)]="selectedNotice.img" placeholder="Notice img url"/>
+    </div>
+    <button (click)="updateNotice()">{{(selectedNotice.id!==undefined)?'Update':'Create'}}</button>
+    <button (click)="goBack()">go back</button>
+  </div>
